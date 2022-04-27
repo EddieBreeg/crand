@@ -9,13 +9,13 @@
     #include <sys/random.h>
 #elif defined(__WINDOWS__)
     #include <windows.h>
-    #define NT_SUCCESS(Status)          (((NTSTATUS)(Status)) >= 0)
     #include <bcrypt.h>
 #endif
 
 
 int randomize(void *out, unsigned long n){
     #ifdef __linux__
+
     long ret;
     do
     {
@@ -24,11 +24,12 @@ int randomize(void *out, unsigned long n){
     } while (n);
     
     #elif defined(__WINDOWS__)
+
     BCRYPT_ALG_HANDLE handle;
-    if(!NT_SUCCESS(BCryptOpenAlgorithmProvider(&handle, BCRYPT_RNG_ALGORITHM, NULL, 0))) return -1;
-    if(
-        !NT_SUCCESS(BCryptGenRandom(handle, out, n, 0))
-    ) return -1;
+    if(BCryptOpenAlgorithmProvider(&handle, BCRYPT_RNG_ALGORITHM, NULL, 0) < 0) return -1;
+    if(BCryptGenRandom(handle, out, n, 0) < 0) return -1;
+    BCryptCloseAlgorithmProvider(handle, 0);
+
     #else
     #error unsupported
     #endif
