@@ -1,7 +1,7 @@
 #include "rand.h"
 #include <stdio.h>
 
-#define N   64
+#define N   512
 
 int main(int argc, char const *argv[])
 {

@@ -14,17 +14,24 @@
 #endif
 
 
-long randomize(void *out, unsigned long n){
+int randomize(void *out, unsigned long n){
     #ifdef __linux__
-    return getrandom(out, n, 0);
+    long ret;
+    do
+    {
+        if((ret = getrandom(out, n, 0)) == -1) return -1;
+        n -= ret;
+    } while (n);
+    
     #elif defined(__WINDOWS__)
     BCRYPT_ALG_HANDLE handle;
     if(!NT_SUCCESS(BCryptOpenAlgorithmProvider(&handle, BCRYPT_RNG_ALGORITHM, NULL, 0))) return -1;
     if(
         !NT_SUCCESS(BCryptGenRandom(handle, out, n, 0))
     ) return -1;
-    return (long)n;
     #else
     #error unsupported
     #endif
+    // return 0 on success
+    return 0;
 }
