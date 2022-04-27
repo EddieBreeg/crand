@@ -24,6 +24,12 @@ int main(int argc, char const *argv[])
 }
 ```
 
+To compile, just link against the library file for your platform.
+You can either download the binaries from the [latest release](https://github.com/EddieBreeg/rand/releases/tag/v1.0)
+or compile from source.\
+Do note that if you're planning to do the latter on windows, you will need to install 
+bcrypt separately. The cryptographic provider SDK from microsoft can be found [here](https://www.microsoft.com/en-us/download/details.aspx?id=30688).
+
 ## Missing MacOS support
 
 As of right now, only linux and windows are supported. The reason is simple:
