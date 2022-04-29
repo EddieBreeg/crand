@@ -1,18 +1,27 @@
-# rand
+# crand
 
-Random numbers, they're everywhere. And since generating good quality random data 
-is by no means an easy task, leaving it to your system is probably the safest bet.
+Random numbers, they're everywhere. I just felt like implementing a few random generators (other than the ones
+already included in the standards), so here it is.
 
-This library is just that: a single function wrapper that allows you to generate
-random bytes without having to worry about system calls.
+**crand** is a general purpose RNG library, available in both C and C++.
 
-## Usage
+## Features
+
+- Support for a lot of platforms including windows, linux, mac and other unix based operating systems
+- Simple interfaces for both C and C++ versions
+
+## Documentation
+
+Coming soon
+
+## Getting started
+
+### Quick Example
 
 *Check out [test.c](test.c) to see the full code*
 ```c
 #include "rand.h"
 #include <stdio.h>
-
 #define N   512
 
 int main(int argc, char const *argv[])
@@ -23,6 +32,8 @@ int main(int argc, char const *argv[])
     // do stuff...
 }
 ```
+
+## Compiling and linking
 
 To compile, just link against the library file for your platform.
 You can either download the binaries from the [latest release](https://github.com/EddieBreeg/rand/releases/tag/v1.0)
