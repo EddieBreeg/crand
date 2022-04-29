@@ -20,5 +20,7 @@ jobs:
       run: cmake -B build -DCMAKE_BUILD_TYPE=Debug
     - name: build
       run: cmake --build build
-    - name: run
+    - name: C test
       run: bin/test
+    - name: C++ test
+      run: bin/cpptest
