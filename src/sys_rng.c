@@ -7,7 +7,8 @@
 #if defined(__linux__)
     #include <sys/types.h>
     #include <sys/random.h>
-#elif defined(unix) || defined(__unix) || defined(__unix__)
+#elif defined(unix) || defined(__unix) || defined(__unix__)\
+        || (defined(__APPLE__) && defined(__MACH__))
     #include <stdio.h>
 #elif defined(__WINDOWS__)
     #include <windows.h>
