@@ -14,9 +14,12 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
+    - name: configure
       run: cmake -B build -DCMAKE_BUILD_TYPE=Debug
+    - name: build
       run: cmake --build build
   run:
     runs-on: macos-latest
     steps:
+    - name: run
       run: ./bin/Debug/test
