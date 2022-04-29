@@ -6,8 +6,10 @@ set(${CMAKE_BUILD_TYPE} Debug)
 endif()
 if($<CONFIG>)
     set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib/${CMAKE_SYSTEM_NAME}/$<CONFIG>)
-else()
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/$<CONFIG>)
+    else()
     set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib/${CMAKE_SYSTEM_NAME}/${CMAKE_BUILD_TYPE})
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
 endif()
 
 include_directories(include)
@@ -28,7 +30,6 @@ target_link_libraries(rand bcrypt_provider)
 endif(WIN32)
 
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 add_executable(test test.c)
 target_link_libraries(test rand)
