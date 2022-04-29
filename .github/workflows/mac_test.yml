@@ -11,7 +11,7 @@ jobs:
         cmake-version: '3.2.x'
     - name: Use cmake
       run: cmake --version
-  build:
+  test:
     runs-on: macos-latest
     steps:
     - name: checkout
@@ -20,8 +20,5 @@ jobs:
       run: cmake -B build -DCMAKE_BUILD_TYPE=Debug
     - name: build
       run: cmake --build build
-  run:
-    runs-on: macos-latest
-    steps:
     - name: run
       run: ./bin/Debug/test
