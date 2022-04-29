@@ -1,0 +1,13 @@
+name: mac_test
+on: [push]
+
+jobs:
+  setup-cmake:
+    steps:
+    - name: Setup cmake
+      uses: jwlawson/actions-setup-cmake@v1.12
+      with:
+        cmake-version: '3.2.x'
+    - name: Use cmake
+      run: cmake --version
+
