@@ -20,7 +20,9 @@ jobs:
       run: cmake -B build -DCMAKE_BUILD_TYPE=Debug
     - name: build
       run: cmake --build build
-    - name: C test
-      run: bin/test
-    - name: C++ test
-      run: bin/cpptest
+    - name: C sys_rng test
+      run: bin/c_sys_rng
+    - name: C++ sys_rng test
+      run: bin/cpp_sys_rng
+    - name: C xoshiro test
+      run: bin/c_xoshiro

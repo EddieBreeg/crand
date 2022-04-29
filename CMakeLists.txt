@@ -12,6 +12,7 @@ include_directories(include)
 
 add_library(crand 
     src/sys_rng.c
+    src/xoshiro.c
 )
 add_library(cpprand 
     src/sys_rng.cpp
@@ -29,7 +30,10 @@ link_directories(${BCRYPT_BIN_DIR})
 target_link_libraries(crand bcrypt_provider)
 endif(WIN32)
 
-add_executable(test test.c)
-add_executable(cpptest test.cpp)
-target_link_libraries(test crand)
-target_link_libraries(cpptest cpprand)
+add_executable(c_sys_rng tests/sys_rng.c)
+add_executable(cpp_sys_rng tests/sys_rng.cpp)
+add_executable(c_xoshiro tests/xoshiro.c)
+
+target_link_libraries(c_sys_rng crand)
+target_link_libraries(c_xoshiro crand)
+target_link_libraries(cpp_sys_rng cpprand)
