@@ -1,4 +1,4 @@
-#include "rand.h"
+#include "sys_rng.h"
 
 #if (defined(_WIN32) || defined(_WIN64)) && !defined(__WINDOWS__)
 #   define __WINDOWS__ 1
@@ -7,6 +7,9 @@
 #if defined(__linux__)
     #include <sys/types.h>
     #include <sys/random.h>
+#elif defined(unix) || defined(__unix) || defined(__unix__)\
+        || (defined(__APPLE__) && defined(__MACH__))
+    #include <stdio.h>
 #elif defined(__WINDOWS__)
     #include <windows.h>
     #include <bcrypt.h>
@@ -22,7 +25,11 @@ int randomize(void *out, unsigned long n){
         if((ret = getrandom(out, n, 0)) == -1) return -1;
         n -= ret;
     } while (n);
-    
+    #elif defined(unix) || defined(__unix) || defined(__unix__) || \
+        (defined(__APPLE__) && defined(__MACH__)) // other unix based systems
+    FILE* dev = fopen("/dev/urandom", "rb");
+    if(fread(out, 1, n, dev) < n) return -1;
+    fclose(dev);
     #elif defined(__WINDOWS__)
 
     BCRYPT_ALG_HANDLE handle;

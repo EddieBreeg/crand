@@ -1,0 +1,24 @@
+name: mac_test
+on: [push]
+
+jobs:
+  setup-cmake:
+    runs-on: macos-latest
+    steps:
+    - name: Setup cmake
+      uses: jwlawson/actions-setup-cmake@v1.12
+      with:
+        cmake-version: '3.2.x'
+    - name: Use cmake
+      run: cmake --version
+  test:
+    runs-on: macos-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+    - name: configure
+      run: cmake -B build -DCMAKE_BUILD_TYPE=Debug
+    - name: build
+      run: cmake --build build
+    - name: run
+      run: bin/Debug/test
