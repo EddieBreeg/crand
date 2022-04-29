@@ -21,4 +21,4 @@ jobs:
     - name: build
       run: cmake --build build
     - name: run
-      run: ./bin/Debug/test
+      run: bin/Debug/test
