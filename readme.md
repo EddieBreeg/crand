@@ -29,10 +29,3 @@ You can either download the binaries from the [latest release](https://github.co
 or compile from source.\
 Do note that if you're planning to do the latter on windows, you will need to install 
 bcrypt separately. The cryptographic provider SDK from microsoft can be found [here](https://www.microsoft.com/en-us/download/details.aspx?id=30688).
-
-## Missing MacOS support
-
-As of right now, only linux and windows are supported. The reason is simple:
-I don't have a mac, and hence have no real way to test any code on that platform.
-
-If anyone does, and has some time to spare then by all means: open a pull request.
