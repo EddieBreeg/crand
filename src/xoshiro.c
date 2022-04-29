@@ -1,5 +1,5 @@
 #include "xoshiro.h"
-#include <malloc.h>
+#include <stdlib.h>
 
 #define rol64(x, k)     (((x) << (k)) | ((x) >> (64 - (k))))
 
