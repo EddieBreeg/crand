@@ -8,7 +8,7 @@ jobs:
     - name: Setup cmake
       uses: jwlawson/actions-setup-cmake@v1.12
       with:
-        cmake-version: '3.2.x'
+        cmake-version: '3.9.x'
     - name: Use cmake
       run: cmake --version
   test:
@@ -21,4 +21,4 @@ jobs:
     - name: build
       run: cmake --build build
     - name: run
-      run: bin/Debug/test
+      run: bin/test
