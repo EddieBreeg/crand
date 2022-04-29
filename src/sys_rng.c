@@ -24,7 +24,8 @@ int randomize(void *out, unsigned long n){
         if((ret = getrandom(out, n, 0)) == -1) return -1;
         n -= ret;
     } while (n);
-    #elif defined(unix) || defined(__unix) || defined(__unix__) // other unix based systems
+    #elif defined(unix) || defined(__unix) || defined(__unix__) || \
+        (defined(__APPLE__) && defined(__MACH__)) // other unix based systems
     FILE* dev = fopen("/dev/urandom", "rb");
     if(fread(out, 1, n, dev) < n) return -1;
     fclose(dev);
