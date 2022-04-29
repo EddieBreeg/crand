@@ -9,7 +9,10 @@ if($<CONFIG>)
 else()
     set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib/${CMAKE_SYSTEM_NAME}/${CMAKE_BUILD_TYPE})
 endif()
-add_library(rand rand.c)
+
+include_directories(include)
+
+add_library(rand src/sys_rng.c)
 set(${CMAKE_Release_POSTFIX} "")
 
 # windows version requires bcrypt to compile
