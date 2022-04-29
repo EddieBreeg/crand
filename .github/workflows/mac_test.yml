@@ -3,6 +3,7 @@ on: [push]
 
 jobs:
   setup-cmake:
+    runs-on: macos-latest
     steps:
     - name: Setup cmake
       uses: jwlawson/actions-setup-cmake@v1.12
