@@ -13,9 +13,13 @@ include_directories(include)
 add_library(crand 
     src/sys_rng.c
     src/xoshiro.c
+    src/aes/luts.c
+    src/aes/aes.c
 )
 add_library(cpprand 
     src/sys_rng.cpp
+    src/aes/luts.c
+    src/aes/aes.cpp
 )
 
 # windows version requires bcrypt to compile
