@@ -15,6 +15,7 @@ add_library(crand
     src/xoshiro.c
     src/ctr.c
     src/aes/luts.c
+    src/lfsr.c
     src/aes/aes.c
 )
 add_library(cpprand 
@@ -41,9 +42,11 @@ add_executable(c_ctr tests/ctr.c)
 add_executable(cpp_ctr tests/ctr.cpp)
 add_executable(cpp_sys_rng tests/sys_rng.cpp)
 add_executable(c_xoshiro tests/xoshiro.c)
+add_executable(c_lfsr tests/lfsr.c)
 
 target_link_libraries(c_sys_rng crand)
 target_link_libraries(c_xoshiro crand)
+target_link_libraries(c_lfsr crand)
 target_link_libraries(c_ctr crand)
 target_link_libraries(cpp_ctr cpprand)
 target_link_libraries(cpp_sys_rng cpprand)
