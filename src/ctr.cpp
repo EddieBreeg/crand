@@ -1,5 +1,5 @@
-#include "ctr.h"
-#include "aes/endian.h"
+#include "crand/ctr.h"
+#include "crand/aes/endian.h"
 
 #if __BYTE_ORDER != __LITTLE_ENDIAN
 

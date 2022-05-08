@@ -1,6 +1,6 @@
-#include "aes/aes.h"
-#include "aes/luts.h"
-#include "aes/endian.h"
+#include "crand/aes/aes.h"
+#include "crand/aes/luts.h"
+#include "crand/aes/endian.h"
 #include <string.h>
 
 #define AES128_SCHED_SIZE   176

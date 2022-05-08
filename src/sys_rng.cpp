@@ -1,4 +1,4 @@
-#include "sys_rng.h"
+#include "crand/sys_rng.h"
 #include <random>
 
 namespace crand

@@ -24,9 +24,9 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org/>
 */
-#include "aes/aes.h"
 #include <string.h>
-#include "aes/luts.h"
+#include "crand/aes/aes.h"
+#include "crand/aes/luts.h"
 
 #define AES128_SCHED_SIZE   176
 #define AES192_SCHED_SIZE   208

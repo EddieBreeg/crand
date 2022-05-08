@@ -1,4 +1,4 @@
-#include "xoshiro.h"
+#include "crand/xoshiro.h"
 #include <stdio.h>
 
 #define N   10

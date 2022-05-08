@@ -1,4 +1,4 @@
-#include "sys_rng.h"
+#include "crand/sys_rng.h"
 
 #if (defined(_WIN32) || defined(_WIN64)) && !defined(__WINDOWS__)
 #   define __WINDOWS__ 1

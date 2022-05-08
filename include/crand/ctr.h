@@ -8,7 +8,7 @@ uint64_t ctr_aes256_get_counter();
 void ctr_aes256_set_counter(uint64_t c);
 
 #ifdef __cplusplus
-#include <aes/aes.h>
+#include <crand/aes/aes.h>
 namespace crand{
     class ctr_aes256
     {

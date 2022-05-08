@@ -7,6 +7,8 @@ worldwide. This software is distributed without any warranty.
 See <http://creativecommons.org/publicdomain/zero/1.0/>. */
 
 #include <inttypes.h>
+#include "crand/xoshiro.h"
+
 #define rotl(x, k) ((x) << (k)) | ((x) >> (64 - (k)))
 
 
