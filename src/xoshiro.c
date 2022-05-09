@@ -8,24 +8,19 @@ See <http://creativecommons.org/publicdomain/zero/1.0/>. */
 
 #include <inttypes.h>
 #include "crand/xoshiro.h"
+#include "crand/splitmix64.h"
 
 #define rotl(x, k) ((x) << (k)) | ((x) >> (64 - (k)))
 
 
 static uint64_t s[4];
 
-static inline uint64_t splitmix64(uint64_t x) {
-	uint64_t z = (x += 0x9e3779b97f4a7c15);
-	z = (z ^ (z >> 30)) * 0xbf58476d1ce4e5b9;
-	z = (z ^ (z >> 27)) * 0x94d049bb133111eb;
-	return z ^ (z >> 31);
-}
 
 void xoshiro256_seed(uint64_t seed){
-	s[0] = seed = splitmix64(seed);
-	s[1] = seed = splitmix64(seed);
-	s[2] = seed = splitmix64(seed);
-	s[3] 		= splitmix64(seed);
+	s[0] = splitmix64(&seed);
+	s[1] = splitmix64(&seed);
+	s[2] = splitmix64(&seed);
+	s[3] = splitmix64(&seed);
 }
 
 uint64_t xoshiro256_next(void) {
@@ -57,7 +52,7 @@ void xoshiro256_jump(void) {
 	uint64_t s1 = 0;
 	uint64_t s2 = 0;
 	uint64_t s3 = 0;
-	for(int i = 0; i < sizeof JUMP / sizeof *JUMP; i++)
+	for(int i = 0; i < 4; i++)
 		for(int b = 0; b < 64; b++) {
 			if (JUMP[i] & UINT64_C(1) << b) {
 				s0 ^= s[0];
@@ -88,7 +83,7 @@ void xoshiro256_long_jump(void) {
 	uint64_t s1 = 0;
 	uint64_t s2 = 0;
 	uint64_t s3 = 0;
-	for(int i = 0; i < sizeof LONG_JUMP / sizeof *LONG_JUMP; i++)
+	for(int i = 0; i < 4; i++)
 		for(int b = 0; b < 64; b++) {
 			if (LONG_JUMP[i] & UINT64_C(1) << b) {
 				s0 ^= s[0];

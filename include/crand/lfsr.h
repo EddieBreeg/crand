@@ -9,7 +9,7 @@ Stepped 128-bit lfsr
 #if !defined(__cplusplus)
 #include <stdbool.h>
 #else
-
+#include "prng.hpp"
 
 #endif // __cplusplus
 
@@ -19,19 +19,16 @@ bool lfsr128_next();
 #if defined(__cplusplus)
 
 namespace crand{
-    class lfsr128
+    class lfsr128: public prng<unsigned char>
     {
     private:
         uint64_t _s[2];
     public:
-        lfsr128(uint64_t s1, uint64_t s2);
+        lfsr128(uint64_t seed);
+        static constexpr result_type min() { return 0; }
+        static constexpr result_type max() { return 1; }
+        result_type operator()() override;
     };
-    
-    lfsr128::lfsr128(uint64_t s1, uint64_t s2)
-    {
-    }
-    
-    
 }
 
 #endif // __cplusplus

@@ -21,4 +21,23 @@ void xoshiro256_long_jump(void);
 
 #ifdef __cplusplus
 
+#include "prng.hpp"
+
+namespace crand
+{
+   class xoshiro256: public prng<uint64_t>
+   {
+   private:
+      uint64_t _s[4];
+   public:
+      xoshiro256(uint64_t seed);
+      static constexpr result_type min() { return 0; }
+      static constexpr result_type max() { return UINT64_MAX; }
+      result_type operator()() override;
+      void jump();
+      void long_jump();
+   };   
+} // namespace crand
+
+
 #endif
