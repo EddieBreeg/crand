@@ -2,6 +2,11 @@
 
 #include <inttypes.h>
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
+
 static inline uint32_t xoshift32(uint32_t reg){
     reg ^= reg << 13;
     reg ^= reg >> 17;
@@ -15,7 +20,7 @@ static inline uint64_t xoshift64(uint64_t reg){
 }
 
 #if defined(__cplusplus)
-
+}
 #include  "crand/prng.hpp"
 
 namespace crand{

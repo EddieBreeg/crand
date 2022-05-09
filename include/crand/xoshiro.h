@@ -4,6 +4,10 @@ All-purpose not cryptographic generator, with a 256-bit state
 #pragma once
 #include <inttypes.h>
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 
 // seeds the xoshiro256 PRNG
 void xoshiro256_seed(uint64_t seed);
@@ -20,7 +24,7 @@ void xoshiro256_jump(void);
 void xoshiro256_long_jump(void);
 
 #ifdef __cplusplus
-
+}
 #include "prng.hpp"
 
 namespace crand

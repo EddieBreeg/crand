@@ -6,17 +6,19 @@ Stepped 128-bit lfsr
 
 #include <stdint.h>
 
-#if !defined(__cplusplus)
-#include <stdbool.h>
+#ifdef __cplusplus
+extern "C"{
 #else
-#include "prng.hpp"
+#include <stdbool.h>
+#endif
 
-#endif // __cplusplus
 
 void lfsr128_seed(uint64_t seed);
 bool lfsr128_next();
 
 #if defined(__cplusplus)
+}
+#include "prng.hpp"
 
 namespace crand{
     class lfsr128: public prng<unsigned char>
