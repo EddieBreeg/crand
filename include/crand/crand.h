@@ -7,6 +7,8 @@
 #include "./lfsr.h"
 #include "./splitmix64.h"
 
+#include "./version.h"
+
 #if defined(__cplusplus)
 
 namespace crand{

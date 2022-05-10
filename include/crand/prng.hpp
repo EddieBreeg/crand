@@ -12,13 +12,15 @@ namespace crand
     #endif
     class prng
     {
-    private:
+    protected:
+        prng() {};
     public:
         using result_type = T;
         virtual result_type operator()() = 0;
         static constexpr result_type min();
         static constexpr result_type max();
-
+        prng(const prng<T>&) = delete;
+        prng<T>& operator=(const prng<T>&) = delete;
     };
     
     

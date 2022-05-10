@@ -69,11 +69,11 @@ https://github.com/mikepb/endian.h/blob/master/endian.h)
 #define     __BYTE_ORDER    __LITTLE_ENDIAN
 
 #else
-#	error native endianness couldn't be determined
+#	error native endianness couldn't be determined'
 #endif
 
 #if defined(__PDP_ENDIAN) && defined(__BYTE_ORDER) && __BYTE_ORDER == __PDP_ENDIAN
-#error  PDP endianness isn't supported
+#error  PDP endianness isn't supported'
 #endif
 
 #ifdef __cplusplus
