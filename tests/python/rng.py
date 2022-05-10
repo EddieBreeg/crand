@@ -22,5 +22,7 @@ def lfsr_next():
 
 
 if __name__ == '__main__':
+	print(hex(splitmix64()))
+	print(hex(splitmix64()))
 	bits = [lfsr_next() for _ in range(256)]
 	print(bits)

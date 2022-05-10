@@ -8,13 +8,11 @@ Stepped 128-bit lfsr
 
 #ifdef __cplusplus
 extern "C"{
-#else
-#include <stdbool.h>
 #endif
 
 
 void lfsr128_seed(uint64_t seed);
-bool lfsr128_next();
+unsigned char lfsr128_next();
 
 #if defined(__cplusplus)
 }
