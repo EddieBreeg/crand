@@ -73,6 +73,10 @@ https://github.com/mikepb/endian.h/blob/master/endian.h)
 #	error native endianness couldn't be determined'
 #endif
 
+#if   (__BYTE_ORDER != __LITTLE_ENDIAN) && ((__BYTE_ORDER != __BIG_ENDIAN)) && (__PDP_ENDIAN == __BYTE_ORDER)
+#   error PDP endian not supported'
+#endif
+
 #ifdef __cplusplus
 }
 #endif
