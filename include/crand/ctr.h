@@ -22,7 +22,7 @@ namespace crand{
         aes256 _aes;
         uint64_t _s[2] = {0};
     public:
-        ctr_aes256(const uint8_t key[32], uint64_t nonce);
+        ctr_aes256(const uint8_t key[32], uint64_t nonce = 0);
         void operator()(void *output);
         uint64_t counter() const;
         void counter(uint64_t c);

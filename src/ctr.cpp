@@ -19,7 +19,7 @@ static inline uint64_t lendian64(uint64_t x){
 #endif
 
 namespace crand{
-    ctr_aes256::ctr_aes256(const uint8_t key[32], uint64_t nonce=0): _aes(key)
+    ctr_aes256::ctr_aes256(const uint8_t key[32], uint64_t nonce): _aes(key)
     {
         #if __BYTE_ORDER != __LITTLE_ENDIAN
             _s[1] = lendian64(nonce);

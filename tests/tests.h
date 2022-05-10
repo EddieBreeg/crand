@@ -26,4 +26,20 @@ int run_rng_test(crand::prng<T>& rng, T (*c_interface)(), T *expected, int n)
     return -1;
 }
 
+template<typename cprng>
+int run_cprng_test(cprng& rng, void (*c_interface)(void *block), uint8_t *expected){
+    constexpr int n = (int)cprng::blockSize();
+    uint8_t block[n];
+    rng(block);
+    for (int i = 0; i < n; i++)
+        if(block[i] != expected[i]) return i;
+    if (c_interface)
+    {
+        c_interface(block);
+        for (int i = 0; i < n; i++)
+            if(block[i] != expected[i]) return i;
+    }
+    return -1;
+}
+
 #endif // __cplusplus
