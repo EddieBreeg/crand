@@ -7,5 +7,5 @@
 #define CRAND_VERSION_MINOR 0
 #endif
 #ifndef CRAND_VERSION_PATCH
-#define CRAND_VERSION_PATCH 0
+#define CRAND_VERSION_PATCH 1
 #endif
