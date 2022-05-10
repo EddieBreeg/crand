@@ -20,6 +20,7 @@ add_library(crand
     src/lfsr.c
     src/aes/aes.c
     src/chacha20/chacha20.c
+    src/xorshift.c
 )
 
 

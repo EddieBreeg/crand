@@ -17,7 +17,7 @@
 #include <crand/prng.hpp>
 
 template<typename T>
-int run_rng_test(crand::prng<T>& rng, T (*c_interface)(), T *expected, int n)
+int run_prng_test(crand::prng<T>& rng, T (*c_interface)(), T *expected, int n)
 {
     for (int i = 0; i < n; i++)
     {
@@ -27,7 +27,7 @@ int run_rng_test(crand::prng<T>& rng, T (*c_interface)(), T *expected, int n)
 }
 
 template<typename cprng>
-int run_cprng_test(cprng& rng, void (*c_interface)(void *block), uint8_t *expected){
+int run_cprng_test(cprng& rng, void (*c_interface)(void * block), uint8_t *expected){
     constexpr int n = (int)cprng::blockSize();
     uint8_t block[n];
     rng(block);

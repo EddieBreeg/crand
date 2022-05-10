@@ -5,6 +5,7 @@
 #include "./xorshift.h"
 #include "./xoshiro.h"
 #include "./lfsr.h"
+#include "./chacha20/chacha20.h"
 #include "./splitmix64.h"
 
 #include "./version.h"

@@ -6,18 +6,11 @@
 extern "C"{
 #endif
 
+void xorshift32_seed(uint64_t seed);
+void xorshift64_seed(uint64_t seed);
 
-static inline uint32_t xoshift32(uint32_t reg){
-    reg ^= reg << 13;
-    reg ^= reg >> 17;
-    return reg ^ (reg << 5);
-}
-
-static inline uint64_t xoshift64(uint64_t reg){
-    reg ^= reg << 13;
-    reg ^= reg >> 7;
-    return reg ^ (reg << 17);
-}
+uint32_t xorshift32_next();
+uint64_t xorshift64_next();
 
 #if defined(__cplusplus)
 }
