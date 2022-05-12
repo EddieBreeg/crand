@@ -52,10 +52,10 @@ engines.
 All the [header files](include) have been carefully commented:
 
 - [<crand/crand.h>](include/crand/crand.h)
-- [`<crand/ctr.h>`](include/crand/ctr.h)
-- [`<crand/lfsr.h>`](include/crand/lfsr.h)
-- [`<crand/xoshiro.h>`](include/crand/xoshiro.h)
-- [`<crand/xorshift.h>`](include/crand/xorshift.h)
+- [<crand/ctr.h>](include/crand/ctr.h)
+- [<crand/lfsr.h>](include/crand/lfsr.h)
+- [<crand/xoshiro.h>](include/crand/xoshiro.h)
+- [<crand/xorshift.h>](include/crand/xorshift.h)
 - [<crand/chacha20/chacha20.h>](include/crand/chacha20/chacha20.h)
 
 ### Regarding the C++ API
