@@ -11,6 +11,13 @@ namespace crand
       _s[2] = splitmix64(&seed);
       _s[3] = splitmix64(&seed);
    }
+   void xoshiro256::seed(uint64_t seed)
+   {
+      _s[0] = splitmix64(&seed);
+      _s[1] = splitmix64(&seed);
+      _s[2] = splitmix64(&seed);
+      _s[3] = splitmix64(&seed);
+   }
    xoshiro256::result_type xoshiro256::operator()()  {
       const uint64_t result = rotl(_s[1] * 5, 7) * 9;
 

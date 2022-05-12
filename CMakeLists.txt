@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
-project(rand VERSION 0.1.0)
+project(rand VERSION 1.2.0)
 
 if(NOT ${CMAKE_BUILD_TYPE})
 set(${CMAKE_BUILD_TYPE} Debug)
@@ -11,6 +11,12 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib/${CMAKE_SYSTEM_NAME})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 include_directories(include)
+add_compile_definitions(
+    CRAND_VERSION=1
+    CRAND_VERSION_MAJOR=${CMAKE_PROJECT_VERSION_MAJOR}
+    CRAND_VERSION_MINOR=${CMAKE_PROJECT_VERSION_MINOR}
+    CRAND_VERSION_PATCH=${CMAKE_PROJECT_VERSION_PATCH}
+)
 
 add_library(crand 
     src/sys_rng.c
@@ -49,12 +55,10 @@ endif(WIN32)
 
 add_executable(ctr tests/ctr.cpp)
 add_executable(sys_rng tests/sys_rng.cpp)
-add_executable(xoshiro tests/xoshiro.cpp)
-add_executable(lfsr tests/lfsr.cpp)
 add_executable(tests tests/tests.cpp)
+add_executable(std_tests tests/std_test.cpp)
 
-target_link_libraries(xoshiro cpprand crand)
-target_link_libraries(lfsr cpprand crand)
 target_link_libraries(ctr cpprand crand)
 target_link_libraries(sys_rng cpprand crand)
 target_link_libraries(tests cpprand crand)
+target_link_libraries(std_tests cpprand)

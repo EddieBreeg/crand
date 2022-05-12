@@ -7,6 +7,11 @@ namespace crand
         _s[0] = splitmix64(&seed);
         _s[1] = splitmix64(&seed);
     }
+    void lfsr128::seed(uint64_t seed)
+    {
+        _s[0] = splitmix64(&seed);
+        _s[1] = splitmix64(&seed);
+    }
     lfsr128::result_type lfsr128::operator()()
     {
         bool out = _s[0] & 1;

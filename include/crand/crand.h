@@ -1,5 +1,7 @@
 #pragma once
 
+/* Convenience header, includes all you need to use the library */
+
 #include "./ctr.h"
 #include "./sys_rng.h"
 #include "./xorshift.h"

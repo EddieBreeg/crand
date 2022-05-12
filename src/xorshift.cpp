@@ -6,7 +6,14 @@ namespace crand
     xorshift32::xorshift32(uint64_t seed){
         _s = (uint32_t)splitmix64(&seed);
     }
+    void xorshift32::seed(uint64_t seed){
+        _s = (uint32_t)splitmix64(&seed);
+    }
+
     xorshift64::xorshift64(uint64_t seed){
+        _s = splitmix64(&seed);
+    }
+    void xorshift64::seed(uint64_t seed){
         _s = splitmix64(&seed);
     }
     xorshift32::result_type xorshift32::operator()(){

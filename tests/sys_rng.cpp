@@ -6,7 +6,7 @@
 int main(int argc, char const *argv[])
 {
     uint8_t buf[N] = {0};
-    if(crand::randomize(buf, N)){
+    if(randomize(buf, N)){
         std::cerr << "Error\n"; return 1;
     }
     for (size_t i = 0; i < N; i++)

@@ -38,7 +38,7 @@ int randomize(void *out, unsigned long n){
     BCryptCloseAlgorithmProvider(handle, 0);
 
     #else
-    #error unsupported
+    #error "unsupported platform"
     #endif
     // return 0 on success
     return 0;
