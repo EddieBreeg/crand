@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
-project(rand VERSION 1.2.0)
+project(rand VERSION 1.1.0)
 
 if(NOT ${CMAKE_BUILD_TYPE})
 set(${CMAKE_BUILD_TYPE} Debug)
@@ -11,6 +11,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib/${CMAKE_SYSTEM_NAME})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 include_directories(include)
+
 add_compile_definitions(
     CRAND_VERSION=1
     CRAND_VERSION_MAJOR=${CMAKE_PROJECT_VERSION_MAJOR}
