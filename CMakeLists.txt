@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
-project(rand VERSION 1.1.0)
+project(rand VERSION 1.1.1)
 
 if(NOT ${CMAKE_BUILD_TYPE})
 set(${CMAKE_BUILD_TYPE} Debug)
@@ -63,3 +63,6 @@ target_link_libraries(ctr cpprand crand)
 target_link_libraries(sys_rng cpprand crand)
 target_link_libraries(tests cpprand crand)
 target_link_libraries(std_tests cpprand)
+
+install(TARGETS crand cpprand DESTINATION lib)
+install(DIRECTORY ./include/crand DESTINATION include)
