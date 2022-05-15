@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
-project(rand VERSION 1.1.1)
+project(rand VERSION 2.0)
 
 if(NOT ${CMAKE_BUILD_TYPE})
 set(${CMAKE_BUILD_TYPE} Debug)
@@ -28,10 +28,11 @@ add_library(crand
     src/aes/aes.c
     src/chacha20/chacha20.c
     src/xorshift.c
+    src/version.c
 )
-
-
-add_library(cpprand 
+    
+    
+    add_library(cpprand 
     src/sys_rng.cpp
     src/lfsr.cpp
     src/ctr.cpp
@@ -40,6 +41,7 @@ add_library(cpprand
     src/aes/luts.c
     src/aes/aes.cpp
     src/chacha20/chacha20.cpp
+    src/version.c
 )
 
 # windows version requires bcrypt to compile

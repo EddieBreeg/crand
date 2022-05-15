@@ -1,14 +1,15 @@
 #pragma once
 
-#ifndef CRAND_VERSION
+#if defined(__cplusplus)
+extern "C"{
+namespace crand{
+#endif // __cplusplus
 
-#warning undefined crand version.
-#warning Please CRAND_VERSION_MAJOR, CRAND_VERSION_MINOR and CRAND_VERSION_PATCH appropriately
+typedef struct { const int major, minor, patch; } crand_version_t;
 
-#define CRAND_VERSION
+crand_version_t crand_get_version();
 
-#define CRAND_VERSION_MAJOR     0
-#define CRAND_VERSION_MINOR     0
-#define CRAND_VERSION_PATCH     0
+#if defined(__cplusplus)
+}}
+#endif // __cplusplus
 
-#endif

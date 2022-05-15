@@ -10,8 +10,9 @@ void chacha_block(void *block) { chacha20_block(c_chacha, block); }
 
 int main(int argc, char const *argv[])
 {
+    crand::crand_version_t version = crand::crand_get_version();
     printf("\tcrand version %d.%d.%d\t\n\n=================================\n\n"
-        , CRAND_VERSION_MAJOR, CRAND_VERSION_MINOR, CRAND_VERSION_PATCH);
+        , version.major, version.minor, version.patch);
     int r;
     uint64_t s=0;
 
